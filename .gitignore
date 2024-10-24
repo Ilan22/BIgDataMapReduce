@@ -1,0 +1,11 @@
+# Ignore Angular project files
+/front/node_modules/
+/front/.angular/cache/
+/front/.env
+/front/.vscode
+
+# Ignore Express.js project files
+/back/node_modules/
+/back/.env
+/back/logs/
+/back/tmp/

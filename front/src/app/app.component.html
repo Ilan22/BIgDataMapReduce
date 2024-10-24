@@ -1,0 +1,31 @@
+<button (click)="change(1)">1er Exo</button>
+<button (click)="change(2)">2ème Exo</button>
+
+<div>
+  <input type="file" (change)="onFileSelected($event)" />
+  <button (click)="onUpload()">Upload File</button>
+</div>
+
+@if(!firstExo){
+Nombre par groupe : <input type="number" [(ngModel)]="nbParGroupe">
+}
+
+<br>
+
+@if(loading){
+  Loading...
+}
+
+@if(error){
+  Error: {{error}}
+}
+
+@if(missingFile){
+  Veuillez choisir un fichier
+}
+
+<br>
+
+@if(!loading && !error && data){
+<span [innerHTML]="data"></span>
+}
