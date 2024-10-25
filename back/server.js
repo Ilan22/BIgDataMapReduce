@@ -3,6 +3,7 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const { spawn } = require("child_process");
+var cors = require("cors");
 
 const app = express();
 const port = 3000;
@@ -24,12 +25,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, POST");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-  next();
-});
+app.use(cors());
 
 app.post("/first", upload.single("file"), (req, res) => {
   reduce(req.file.filename, res);
